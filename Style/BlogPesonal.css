@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  background-color: #fffdf0;
+  color: #333;
+  padding: 1.25rem; 
+}
+
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 1.25rem; 
+  text-align: center;
+}
+
+nav a {
+  color: #fff;
+  margin: 0 0.94rem; 
+  text-decoration: none;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.intro {
+  text-align: center;
+  margin: 1.9rem 0;
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 1.25rem; 
+}
+
+.articulos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem; 
+  justify-content: space-between;
+}
+
+.articulos article {
+  background-color: #fff;
+  padding: 1.25rem; 
+  border-radius: 0.5rem; 
+  flex: 1 1 45%;
+  box-shadow: 0 0.125rem 0.31rem rgba(0, 0, 0, 0.1); 
+}
+
+.contacto {
+  background-color: #fff;
+  padding: 1.9rem; 
+  margin-top: 2.5rem; 
+  border-radius: 0.5rem; 
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 0.63rem;
+}
+
+form input,
+form textarea {
+  padding: 0.63rem;
+  margin-top: 0.31rem; 
+  border-radius: 0.25rem; 
+  border: 0.06rem solid #ccc; 
+}
+
+form button {
+  margin-top: 0.94rem;
+  padding: 0.63rem; 
+  border: none;
+  background-color: #333;
+  color: #fff;
+  border-radius: 0.25rem; 
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #555;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+footer {
+  text-align: center;
+  color: #777;
+}
+
+.icono img {
+  height: 3.125rem; 
+  border-radius: 30%;
+}
+
+footer {
+  text-align: center;
+}
+
+@media (max-width: 48rem) { 
+  .articulos {
+    flex-direction: column;
+  }
+
+  .articulos article {
+    flex: 1 1 100%;
+  }
+
+  form {
+    width: 100%;
+  }
+
+  img {
+    position: static;
+    max-width: 100%;
+    height: auto;
+  }
+}

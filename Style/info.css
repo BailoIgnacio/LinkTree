@@ -1,0 +1,29 @@
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 2rem;
+    }
+    .post-nav a {
+      background-color: #333;
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1.0rem;
+    }
+    .post-nav a:hover {
+      background-color: #555;
+    }
+    .contenido {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem;
+      background-color: white;
+      border-radius: 0.5rem;
+    }
+    .contenido h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+    .contenido p {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+    }

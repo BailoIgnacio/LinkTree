@@ -31,7 +31,7 @@ nav a:hover {
 
 .intro {
   text-align: center;
-  margin: 1.9rem 0;
+  margin: 2rem;
 }
 
 .titulo {
@@ -109,17 +109,13 @@ footer {
   border-radius: 30%;
 }
 
-footer {
-  text-align: center;
-}
-
 @media (max-width: 48rem) { 
   .articulos {
     flex-direction: column;
   }
 
   .articulos article {
-    flex: 1 1 100%;
+    flex: 1 1 100%; 
   }
 
   form {

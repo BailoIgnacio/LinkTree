@@ -1,0 +1,97 @@
+.tabla {
+  width: 90%;
+  margin: 2rem auto;
+  border-collapse: collapse;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  overflow-x: auto;
+  background-color: #2b2b2b;
+  color: #f0f0f0;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.tabla thead {
+  background-color: #0077cc;
+  color: white;
+  text-align: left;
+}
+
+.tabla th, .tabla td {
+  padding: 1rem;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+.tabla tbody tr:nth-child(even) {
+  background-color: #3a3a3a;
+}
+
+.tabla tbody tr:hover {
+  background-color: #555;
+  transition: background-color 0.3s;
+}
+
+.contenedor-descarga {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.boton-descarga {
+  color: rgb(255, 255, 255);
+  text-align: center;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1rem;
+  transition: transform 0.2s, box-shadow 0.3s;
+  display: inline-block;
+}
+
+.boton-descarga:hover {
+  transform: scale(1.05);
+
+}
+
+.descarga-container {
+  text-align: center;
+  margin: 3rem 0;
+}
+
+.boton-descarga {
+  display: inline-block;
+  background: linear-gradient(135deg, #0077cc, #00bfff);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', sans-serif;
+  text-decoration: none;
+  box-shadow: 0 8px 15px rgba(0, 119, 204, 0.3);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.boton-descarga::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  transition: left 0.5s;
+}
+
+.boton-descarga:hover::after {
+  left: 125%;
+}
+
+.boton-descarga:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 119, 204, 0.5);
+  background: linear-gradient(135deg, #0099ff, #00ccff);
+}

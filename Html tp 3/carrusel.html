@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Style/carrusel.css">
+  <title>Galeria de fotos</title>
+</head>
+<body>
+  <header>
+  <nav>
+    <h1 class="titulo-galeria-header">Galería de Fotos</h1>
+    <ul class="menu-header">
+      <li><a href="portfolio.html">Inicio</a></li>
+      <li><a href="calculadora.html">Calculadora</a></li>
+      <li><a href="sonidos.html">Sonidos</a></li>
+      <li><a href="portfolio.html#contacto">Contacto</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <main>
+    <div class="grid-galeria">
+    <img src="img/audimiami.jpg" alt="Imagen 1" onclick="abrirLightbox(0)" />
+    <img src="img/playa.jpg" alt="Imagen 2" onclick="abrirLightbox(1)" />
+    <img src="img/porche.jpg" alt="Imagen 3" onclick="abrirLightbox(2)" />
+    <img src="img/roma.jpg" alt="Imagen 4" onclick="abrirLightbox(3)" />
+    <img src="img/autolluvia.jpg" alt="Imagen 5" onclick="abrirLightbox(4)" />
+    <img src="img/mar.jpg" alt="Imagen 5" onclick="abrirLightbox(5)" />
+    <img src="img/ciudad.jpg" alt="Imagen 6" onclick="abrirLightbox(6)" />
+    <img src="img/obelisco.jpg" alt="Imagen 7" onclick="abrirLightbox(7)" />
+    <img src="img/calle.jpg" alt="Imagen 7" onclick="abrirLightbox(8)" />
+    <img src="img/moto.jpg" alt="Imagen 7" onclick="abrirLightbox(9)" />
+    <img src="img/newyork.jpg" alt="Imagen 7" onclick="abrirLightbox(10)" />
+    <img src="img/tranvia.jpg" alt="Imagen 7" onclick="abrirLightbox(11)" />
+    
+</div>
+
+<div id="lightbox" class="lightbox">
+  <span class="cerrar" onclick="cerrarLightbox()">×</span>
+  <img id="imagenAmpliada" src="" alt="Imagen ampliada" />
+  <button class="flecha izquierda" onclick="cambiarImagen(-1)">❮</button>
+  <button class="flecha derecha" onclick="cambiarImagen(1)">❯</button>
+</div>
+  </main>
+
+<script>
+  const imagenes = [
+  "img/audimiami.jpg" ,
+  "img/playa.jpg",
+  "img/porche.jpg",
+  "img/roma.jpg",
+  "img/autolluvia.jpg",
+  "img/mar.jpg",
+  "img/ciudad.jpg",
+  "img/obelisco.jpg",
+  "img/calle.jpg",
+  "img/moto.jpg",
+  "img/newyork.jpg",
+  "img/tranvia.jpg"
+  
+];
+
+let indiceActual = 0;
+
+function abrirLightbox(indice) {
+  indiceActual = indice;
+  document.getElementById("imagenAmpliada").src = imagenes[indiceActual];
+  document.getElementById("lightbox").style.display = "flex";
+}
+
+function cerrarLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function cambiarImagen(direccion) {
+  indiceActual = (indiceActual + direccion + imagenes.length) % imagenes.length;
+  document.getElementById("imagenAmpliada").src = imagenes[indiceActual];
+}
+
+document.getElementById("lightbox").addEventListener("click", (e) => {
+  if (e.target.id === "lightbox") {
+    cerrarLightbox();
+  }
+});
+
+
+document.addEventListener("keydown", (e) => {
+  if (document.getElementById("lightbox").style.display === "flex") {
+    if (e.key === "Escape") cerrarLightbox();
+    if (e.key === "ArrowLeft") cambiarImagen(-1);
+    if (e.key === "ArrowRight") cambiarImagen(1);
+  }
+});
+
+</script>
+</body>
+</html>

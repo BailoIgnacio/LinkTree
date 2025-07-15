@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="Style/calculadora.css">
+  <title>Calculadora</title>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1>Calculadora</h1>
+      <ul>
+        <li><a href="portfolio.html">Inicio</a></li>
+        <li><a href="carrusel.html">Galería</a></li>
+        <li><a href="sonidos.html">Sonidos</a></li>
+        <li><a href="portfolio.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <div class="calculadora">
+    <input type="text" id="display" readonly placeholder="0" />
+
+    <div class="botones">
+      <button onclick="agregarNumero('7')">7</button>
+      <button onclick="agregarNumero('8')">8</button>
+      <button onclick="agregarNumero('9')">9</button>
+      <button onclick="operar('/')">÷</button>
+
+      <button onclick="agregarNumero('4')">4</button>
+      <button onclick="agregarNumero('5')">5</button>
+      <button onclick="agregarNumero('6')">6</button>
+      <button onclick="operar('*')">×</button>
+
+      <button onclick="agregarNumero('1')">1</button>
+      <button onclick="agregarNumero('2')">2</button>
+      <button onclick="agregarNumero('3')">3</button>
+      <button onclick="operar('-')">−</button>
+
+      <button onclick="agregarNumero('0')">0</button>
+      <button onclick="agregarNumero('.')">.</button>
+      <button onclick="calcularPorcentaje()">%</button>
+      <button onclick="operar('+')">+</button>
+
+      <button onclick="calcularRaiz()">√</button>
+      <button onclick="borrar()">C</button>
+      <button onclick="calcularResultado()" class="igual">=</button>
+    </div>
+  </div>
+
+  <script>
+    let operacion = "";
+    let resultadoMostrado = false;
+
+    function agregarNumero(num) {
+      const display = document.getElementById("display");
+      if (resultadoMostrado) {
+        operacion = "";
+        resultadoMostrado = false;
+      }
+      if (num === "." && operacion.includes(".")) return;
+
+      operacion += num;
+      display.value = operacion;
+    }
+
+    function operar(op) {
+      const display = document.getElementById("display");
+      if (operacion === "") return;
+      if ("+-*/".includes(operacion.slice(-1))) {
+        operacion = operacion.slice(0, -1);
+      }
+      operacion += op;
+      display.value = operacion;
+      resultadoMostrado = false;
+    }
+
+    function calcularResultado() {
+      const display = document.getElementById("display");
+      try {
+        let res = eval(operacion);
+        if (res === undefined) return;
+        display.value = res;
+        operacion = res.toString();
+        resultadoMostrado = true;
+      } catch {
+        display.value = "Error";
+        operacion = "";
+      }
+    }
+
+    function borrar() {
+      operacion = "";
+      document.getElementById("display").value = "";
+    }
+
+    function calcularPorcentaje() {
+      const display = document.getElementById("display");
+      try {
+        let res = eval(operacion);
+        res = res / 100;
+        display.value = res;
+        operacion = res.toString();
+        resultadoMostrado = true;
+      } catch {
+        display.value = "Error";
+        operacion = "";
+      }
+    }
+
+    function calcularRaiz() {
+      const display = document.getElementById("display");
+      try {
+        let res = eval(operacion);
+        if (res < 0) {
+          display.value = "Error";
+          operacion = "";
+          return;
+        }
+        res = Math.sqrt(res);
+        display.value = res;
+        operacion = res.toString();
+        resultadoMostrado = true;
+      } catch {
+        display.value = "Error";
+        operacion = "";
+      }
+    }
+  </script>
+
+</body>
+</html>

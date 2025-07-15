@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Paleta de Sonidos</title>
+  <link rel="stylesheet" href="style/sonido.css" />
+</head>
+<body>
+
+  <header>
+    <nav>
+      <h1>Botonera de Sonidos</h1>
+      <ul>
+        <li><a href="portfolio.html">Inicio</a></li>
+        <li><a href="carrusel.html">Galería</a></li>
+        <li><a href="calculadora.html">Calculadora</a></li>
+        <li><a href="portfolio.html#contacto">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="soundboard">
+    <h2>Presioná para escuchar</h2>
+    <div class="botones">
+      <button onclick="reproducirSonido('sonido1')">Aplauso</button>
+      <button onclick="reproducirSonido('sonido2')">Campana</button>
+      <button onclick="reproducirSonido('sonido3')">Disparo</button>
+      <button onclick="reproducirSonido('sonido4')">Error</button>
+      <button onclick="reproducirSonido('sonido5')">Auto</button>
+      <button onclick="reproducirSonido('sonido6')">Perro</button>
+      <button onclick="reproducirSonido('sonido7')">Gato</button>
+      <button onclick="reproducirSonido('sonido8')">Viento</button>
+    </div>
+    <div>
+      <button class="bottonstop" onclick="detenerTodosLosSonidos()">DETENER</button>
+    </div>
+
+    <audio id="sonido1" src="ruidos/Efecto de Sonido  aplauso 1 sola persona.mp3"></audio>
+    <audio id="sonido2" src="ruidos/campana de Box  Efecto de sonido.mp3"></audio>
+    <audio id="sonido3" src="ruidos/Efecto y sonido de disparo.mp3"></audio>
+    <audio id="sonido4" src="ruidos/Efecto error computadora  sonido real - EFecto Pantalla Verde.mp3"></audio>
+    <audio id="sonido5" src="ruidos/EFECTOS DE SONIDO COCHE DERRAPAR GEMIDO DERRAPE.mp3"></audio>
+    <audio id="sonido6" src="ruidos/SONIDO PERRO BRAVO LADRANDO   EFECTO DE SONIDO  ALPsounds -- BARKING DOG.mp3"></audio>
+    <audio id="sonido7" src="ruidos/Gato Enojado.mp3"></audio>
+    <audio id="sonido8" src="ruidos/Efecto de sonido de viento.mp3"></audio>
+
+  </main>
+
+  <script>
+    function reproducirSonido(id) {
+      const audios = document.querySelectorAll('audio');
+      audios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0;
+      });
+
+      const sonido = document.getElementById(id);
+      sonido.play();
+    }
+
+    function detenerTodosLosSonidos() {
+      const audios = document.querySelectorAll('audio');
+      audios.forEach(audio => {
+        audio.pause();
+        audio.currentTime = 0; 
+      });
+    }
+  </script>
+
+</body>
+</html>
